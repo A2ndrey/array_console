@@ -11,15 +11,66 @@ namespace array_console
         static void Main(string[] args)
         {
             // test();
+            
+            // string[] s = Console.ReadLine().Split();
+
+            // array:
+
             // multiplyofthree(true);
             // multiplyofthree(false);
             //morethanprevious();
-            swapelement();
+            //swapelement();
+            //differentsign();
+            swipetoright();
+
 
             Console.ReadKey();
 
         }
 
+
+        private static void swipetoright()
+        {
+           
+            int n = Convert.ToInt32(Console.ReadLine());
+            string s = Console.ReadLine();
+            string[] a = new string[n];
+            a = s.Split(' ');
+
+            Console.Write(a[n-1] + " ");
+            for (int i = 0; i < n-1; i++)
+                Console.Write(a[i] + " ");
+ 
+        }
+
+        private static void differentsign()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string s = Console.ReadLine();
+            string[] ss = s.Split(' ');
+            int previous = 0;
+            bool res = false;
+
+            for (int i=0; i<n; i++)
+            {
+                if (i == 0)
+                {
+                    previous = Convert.ToInt32(ss[i]);
+                    continue;
+                }
+
+                if ((Convert.ToInt32(ss[i]) * previous) > 0)
+                {
+                    res = true;
+                    break;
+                }
+
+                previous = Convert.ToInt32(ss[i]);
+
+            }
+
+            Console.WriteLine(res ? "YES" : "NO");
+        }
 
         private static void swapelement()
         {
