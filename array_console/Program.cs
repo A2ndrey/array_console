@@ -31,10 +31,153 @@ namespace array_console
             // trianglePascale();
             // firstmaxinmatrix();
 
+
+            // evenandcount();
+            // lessthannext();
+            // changeelements();
+            // differentelements();
+            // myQueue();
+            // cntletter();
+            oppositenumbers();
+
             Console.ReadKey();
 
         }
 
+        private static void oppositenumbers()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] s = Console.ReadLine().Split(' ');
+
+            for (int i = 0; i < n-1; i++)
+                for (int j = i+1; j < n; j++)
+                    if (((Convert.ToInt32(s[i]) + Convert.ToInt32(s[j])) == 0) ) 
+                        Console.WriteLine(i < j ? ( $"{i} {j}") : ($"{j} {i}"));
+
+        }
+
+        private static void cntletter()
+        {
+            string s = Console.ReadLine();
+  
+            for (char a = 'a'; a <= 'z'; a++)
+            {
+                var cnt = 0;
+                for (int i = 0; i < s.Length; i++)
+                    if (a == s[i])
+                        cnt++;
+
+                if (cnt >0)
+                    Console.WriteLine(a + " " + cnt);
+            }
+
+        }
+
+
+        private static void myQueue()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] ss = Console.ReadLine().Split(' ');
+            int newvalue = Convert.ToInt32(Console.ReadLine());
+            var wasfound = false;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (newvalue > Convert.ToInt32(ss[i]))
+                {
+                    Console.WriteLine(i + 1);
+                    wasfound = true;
+                    break;
+                }
+            }
+
+            if (wasfound == false)
+                Console.WriteLine(n + 1);
+
+        }
+
+
+        private static void differentelements()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] s = Console.ReadLine().Split(' ');
+            var cnt = 0;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (s[i] != s[i + 1]) cnt++;
+            }
+            cnt++;
+            Console.WriteLine(cnt);
+        }
+
+        private static void changeelements()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] ss = Console.ReadLine().Split(' ');
+
+            List<int> indexlist = new List<int>();
+            var cnt = 0;
+
+            for (int i = 0; i < n; i++)
+                if ((Convert.ToInt32(ss[i]) % 3 == 0)
+                    && (Convert.ToInt32(ss[i]) % 10 == 7))
+                {
+                    indexlist.Add(i);
+                    cnt++;
+
+                }
+
+            foreach (int el in indexlist)
+                ss[el] = Convert.ToString(cnt);
+
+            foreach (string el in ss)
+                Console.Write(el + " ");
+
+
+        }
+
+        private static void lessthannext()
+        {
+
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] ss = Console.ReadLine().Split(' ');
+            var cnt = 0;
+
+            for (int i = n - 1; i > 0; i--)
+            {
+                if (Convert.ToInt32(ss[i]) > Convert.ToInt32(ss[i - 1]))
+                    cnt++;
+
+            }
+
+            Console.WriteLine(cnt);
+
+
+
+        }
+
+        private static void evenandcount()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            var cnt = 0;
+
+            string[] s = Console.ReadLine().Split(' ');
+
+            foreach (string el in s)
+                if (Convert.ToInt32(el) % 2 == 0)
+                {
+                    Console.Write(el + " ");
+                    cnt++;
+
+                }
+
+            Console.WriteLine();
+            Console.WriteLine(cnt);
+
+
+
+        }
 
         private static void firstmaxinmatrix()
         {
