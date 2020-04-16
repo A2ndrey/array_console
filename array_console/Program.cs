@@ -10,6 +10,11 @@ namespace array_console
     {
         static void Main(string[] args)
         {
+
+            var a = new[] { 1, 2, 3 };
+            foreach (var el in a)
+                Console.WriteLine(el);
+            
             // test();
 
             // multiplyofthree(true);
